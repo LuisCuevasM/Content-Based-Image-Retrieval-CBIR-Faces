@@ -8,4 +8,5 @@ def  handcrafted_method(path,orientations=9,pixels_per_cell=(8, 8),cells_per_blo
  fd, hog_image = hog(img, orientations, pixels_per_cell,
                      cells_per_block, block_norm='L2-Hys',
                      visualize=True, channel_axis=-1)
+ print(fd)
  return fd
