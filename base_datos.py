@@ -10,6 +10,7 @@ import cv2
 import numpy as np
 import csv
 import Handcrafted_Method as HM
+import VC_CNN as CNN
 
 # Función para calcular el vector de características según el nivel de extracción
 def calcular_vector_caracteristicas(ruta_imagen, nivel):
@@ -17,7 +18,11 @@ def calcular_vector_caracteristicas(ruta_imagen, nivel):
         hist = HM.handcrafted_method(ruta_imagen)
         return hist
     elif nivel == 2:
-        pass  # Agregar lógica para nivel 2
+        hist = CNN.vc_cnn(ruta_imagen,'VGG16')
+        return hist
+    elif nivel == 22:
+        hist = CNN.vc_cnn(ruta_imagen,'VGG19') 
+        return hist   
     elif nivel == 3:
         pass  # Agregar lógica para nivel 3
 
@@ -62,4 +67,4 @@ def procesar_imagenes(nivel, dataset_path='CBIR Faces Dataset 2024'):
                     guardar_en_csv(imagen_nombre, vector, csv_writer)
 
 # Llamar a la función para procesar las imágenes con el nivel deseado
-#procesar_imagenes(nivel=1)
+procesar_imagenes(nivel=22)

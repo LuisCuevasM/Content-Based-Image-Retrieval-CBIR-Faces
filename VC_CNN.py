@@ -18,7 +18,7 @@ def vc_cnn(path, CNN='VGG16'):
         fd = extract_features_mobilenet(path)
     else:
         fd = 0
-
+    print(fd)
     return fd
 
 # Función para extraer características con VGG16
